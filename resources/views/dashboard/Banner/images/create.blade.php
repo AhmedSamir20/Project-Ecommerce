@@ -11,7 +11,7 @@
                                 <li class="breadcrumb-item"><a href="">الرئيسية </a>
                                 </li>
 
-                                <li class="breadcrumb-item active"> اسليدر الرئيسيه
+                                <li class="breadcrumb-item active"> الاعلانات
                                 </li>
                             </ol>
                         </div>
@@ -42,7 +42,7 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('admin.sliders.images.store.db')}}"
+                                              action="{{route('admin.banner.images.store.db')}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
@@ -89,7 +89,7 @@
                                 <a href="{{$image -> photo}}" itemprop="contentUrl" data-size="480x360">
                                     <img src="{{$image->photo}}" alt="photo" class="img-thumbnail height-150 width-300">
                                 </a>
-                                <form action="{{route('delete.image.slider', $image->id)}}" method="post">
+                                <form action="{{route('delete.image.banner', $image->id)}}" method="post">
                                     @csrf  @method('delete')
                                     <button type="submit"  data-toggle="tooltip" data-original-title="Delete"
                                             class="btn btn-danger box-shadow-3 mb-1 " style="width: 80px; margin-top: 1em"> حذف</button>
@@ -131,7 +131,7 @@
                     "{{ csrf_token() }}"
             }
             ,
-            url: "{{ route('admin.sliders.images.store') }}", // Set the url
+            url: "{{ route('admin.banner.images.store') }}", // Set the url
             success:
                 function (file, response) {
                     $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
@@ -151,7 +151,7 @@
                 // Add this code in removedfile dropzone
                 $.ajax({
                     type: 'POST',
-                    url: '{{ route('delete.slider.image.fromFolder') }}',
+                    url: '{{ route('delete.banner.image.fromFolder') }}',
                     data: {
                         fileName: name
                     },

@@ -28,6 +28,7 @@ Route::group([
         Route::get('/','HomeController@home') -> name('home') ;
         route::get('category/{slug}','CategoryController@productsBySlug') ->name('category');
         route::get('product/{slug}', 'ProductController@productsBySlug')->name('product.details');
+        route::get('/search', 'SearchController@search');
         /*
          * cart route
         */

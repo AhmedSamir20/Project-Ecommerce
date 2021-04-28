@@ -147,6 +147,15 @@ Route::group(
             Route::delete('delete-image-slider/{id}', 'SliderController@deleteImagesOfSlider')->name('delete.image.slider');
             Route::post('remove-image-slider', 'SliderController@removeImagesOfSliderFromFolder')->name('delete.slider.image.fromFolder');
         });
+        //======================== sliders Routes ======================
+
+        Route::group(['prefix' => 'banners'], function () {
+            Route::get('/', 'BannerController@addImages')->name('admin.banner.create');
+            Route::post('images', 'BannerController@saveBannerImages')->name('admin.banner.images.store'); //save folder
+            Route::post('images/db', 'BannerController@saveBannerImagesDB')->name('admin.banner.images.store.db'); //save db
+            Route::delete('delete-image-banner/{id}', 'BannerController@deleteImagesOfBanner')->name('delete.image.banner');
+            Route::post('remove-image-banner', 'BannerController@removeImagesOfBannerFromFolder')->name('delete.banner.image.fromFolder');
+        });
 
 
 
